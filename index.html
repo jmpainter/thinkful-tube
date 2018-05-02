@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Home made You-tube player">
-  <title>Document</title>
+  <title>My Tube</title>
   <link rel="stylesheet" href="css/float-grid.css">
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
@@ -21,8 +21,8 @@
     <div class="row">
       <div class="col-12">
         <form class="js-form" action="">
-          <label for="search">Search for: </label>
-          <input id="search" type="text" placeholder="search term">
+          <label for="js-query">Search for: </label>
+          <input id="js-query" type="text" placeholder="search term">
           <button class="js-form-submit" type="submit">Search</button>
         </form>
       </div>
@@ -30,18 +30,20 @@
   </section>
   <main role="main">
     <div class="row">
-      <div class="col-2-4">
-        <video controls>
+      <div class="col-wide">
+        <video class="js-video" src="https://www.youtube.com/watch?v=CPy0-J6pxKI" controls>
         </video>
       </div>
-      <div class="col-4">
+      <div class="col-3">
         <nav class="pages" role="navigation">
           <button class="page prev">&lt; Prev</button>    
           <button class="page next">Next &gt;</button>    
         </nav>
         <ul class="results">
-          <li>
-            <img src="https://i.ytimg.com/vi/h_Zn-8iHXMs/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBVf5Pzi4ityahsc47P-rSmviCQiQ" id="xW0i-1iIFrI" alt="thumbnail">
+          <!-- <li>
+            <a href="#" id="xW0i-1iIFrI">
+              <img src="https://i.ytimg.com/vi/h_Zn-8iHXMs/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBVf5Pzi4ityahsc47P-rSmviCQiQ" alt="thumbnail">
+            </a>
             <p class="title">Dj Music</p>
             <p class="source"><a href="#>">BCC</a></p>
           </li>
@@ -59,10 +61,15 @@
             <img src="https://i.ytimg.com/vi/h_Zn-8iHXMs/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBVf5Pzi4ityahsc47P-rSmviCQiQ" id="xW0i-1iIFrI" alt="thumbnail">
             <p class="title">Dj Music</p>
             <p class="source"><a href="#>">BCC</a></p>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
   </main>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="app.js"></script>
 </body>
 </html>

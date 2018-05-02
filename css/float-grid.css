@@ -32,7 +32,7 @@
   clear: both;
 }
 
-.col-3, .col-4, .col-6, .col-12, .col-2-4 {
+.col-3, .col-4, .col-6, .col-12, .col-wide {
   float: left;
 
   /* Gutters:
@@ -46,7 +46,7 @@
 }
 
 /* Mobile defaults */
-.col-3, .col-4, .col-6, .col-12, .col-2-4 {
+.col-3, .col-4, .col-6, .col-12, .col-wide {
   width: 100%;
 }
 
@@ -62,8 +62,8 @@
     width: 33.33%;
   }
 
-  .col-2-4 {
-    width: 66.66%;
+  .col-wide {
+    width: 75%;
   }
 
   /* 6 columns */

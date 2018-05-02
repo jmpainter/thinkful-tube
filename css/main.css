@@ -11,7 +11,8 @@ body {
 }
 
 /* search form */
-#search {
+
+#js-query {
   padding: 8px;
   width: 275px;
   font-size: 16px;
@@ -30,6 +31,10 @@ button {
   border-style: solid;
   border-radius: 3px;
 }
+.js-form label {
+  font-size: 18px;
+}
+
 /* Results section */
 
 .results {
@@ -62,10 +67,11 @@ button {
 .page {
   padding: 4px;
 }
+
 /*video player */
 
 video {
-  width: 600px;
+  width: 630px;
   border: 1px solid #8a8a8a;
   margin-top: 38px;
   background-color: white;
