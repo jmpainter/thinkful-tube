@@ -1,23 +1,31 @@
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
-const YOUTUBE_EMBED_URL = 'https://www.youtube.com/embed/'
-https://www.youtube.com/embed/tgbNymZ7vqY
+const YOUTUBE_EMBED_URL = 'https://www.youtube.com/embed/';
 
-function getSearchTermDataFromApi(searchTerm, callback) {
-  const query = {
-    part: 'snippet',
-    key: 'AIzaSyDz1msOIOSeKQO_-4y4_RTn7r5v7fI7OPI',
-    q: searchTerm
-  };
-  $.getJSON(YOUTUBE_SEARCH_URL, query, callback);
+const appState = {
+  searchMode: '',
+  query: '',
+  channelId: '',
+  nextPageToken: '',
+  prevPageToken: '',
 }
 
-function getChannelDataFromApi(channelId, callback) {
+function getDataFromApi(nextOrPrev) {
   const query = {
     part: 'snippet',
     key: 'AIzaSyDz1msOIOSeKQO_-4y4_RTn7r5v7fI7OPI',
-    channelId: channelId
+    maxResults: 5,
   };
-  $.getJSON(YOUTUBE_SEARCH_URL, query, callback);
+  if(appState.searchMode === 'query') {
+    query.q = appState.query;
+  } else if(appState.searchMode === 'channel') {
+    query.channelId = appState.channelId;
+  }
+  if(nextOrPrev === 'next') {
+    query.pageToken = appState.nextPageToken;
+  } else if(nextOrPrev === 'prev') {
+    query.pageToken = appState.prevPageToken;    
+  }
+  $.getJSON(YOUTUBE_SEARCH_URL, query, displayResults);
 }
 
 function renderResult(result) {
@@ -34,16 +42,30 @@ function renderResult(result) {
 
 function displayResults(data) {
   console.log(data);
-  const results = data.items.map(item => renderResult(item));
-  $('.results').html(results);
+  if(data.nextPageToken) {
+    appState.nextPageToken = data.nextPageToken;
+  } else {
+    appState.nextPageToken = '';
+  }
+  if(data.prevPageToken) {
+    appState.prevPageToken = data.prevPageToken;
+  } else {
+    appState.prevPageToken = '';
+  }
+  if(data.items.length > 0) {
+    const results = data.items.map(item => renderResult(item));
+    $('.results').html(results);
+  } else {
+    getDataFromApi('prev');
+  }
 }
 
 function handleSearchSubmit() {
   $('.js-form').submit(event => {
     event.preventDefault();
-    const query = $(event.currentTarget).find('#js-query').val();
-    console.log(query);
-    getSearchTermDataFromApi(query, displayResults)
+    appState.searchMode = 'query';
+    appState.query =  $(event.currentTarget).find('#js-query').val();
+    getDataFromApi();
   });
 }
 
@@ -65,9 +87,25 @@ function handleTitleClick() {
 
 function handleChannelClick() {
   $('.results').on('click', '.js-channel', function(event) {
-    const channelId = $(this).attr('id');
-    console.log(channelId);
-    getChannelDataFromApi(channelId, displayResults)
+    appState.searchMode = 'channel';
+    appState.channelId = $(this).attr('id');
+    getDataFromApi();
+  });
+}
+
+function handleNextClick() {
+  $('.js-next').click(event => {
+    if(appState.nextPageToken) {
+      getDataFromApi('next');
+    }
+  });
+}
+
+function handlePrevClick() {
+  $('.js-prev').click(event => {
+    if(appState.prevPageToken) {
+      getDataFromApi('prev');
+    }
   });
 }
 
@@ -76,6 +114,8 @@ function startApp() {
   handleThumbnailClick();
   handleTitleClick();
   handleChannelClick();
+  handleNextClick();
+  handlePrevClick();
 }
 
 $(startApp);

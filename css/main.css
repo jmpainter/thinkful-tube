@@ -34,9 +34,12 @@ button {
 .js-form label {
   font-size: 18px;
 }
+.search-area {
+  border-bottom: 1px solid #9e9e9e;
+  padding-bottom: 15px;
+}
 
 /* Results section */
-
 .results {
   list-style: none;
   padding: 0;
@@ -58,14 +61,17 @@ button {
   margin-bottom: 5px;
   border: 1px solid #8a8a8a;
   padding: 4px;
-  max-width: 150px;
+  max-width: 130px;
   background-color: white;
 }
-.next {
-  margin-left: 32px;
+.js-next {
+  margin-left: 20px;
 }
 .page {
   padding: 4px;
+}
+.pages {
+  padding-top: 10px;
 }
 
 /*video player */
@@ -74,6 +80,6 @@ button {
   width: 630px;
   height: 354px;
   border: 1px solid #8a8a8a;
-  margin-top: 45px;
+  margin-top: 53px;
   background-color: white;
 }
