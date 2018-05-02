@@ -48,7 +48,7 @@ button {
   margin: 5px 0;
   font-weight: 600;
 }
-.results .source {
+.results .channel {
   margin: 0;
 }
 .results a {
@@ -70,9 +70,10 @@ button {
 
 /*video player */
 
-video {
+.js-video {
   width: 630px;
+  height: 354px;
   border: 1px solid #8a8a8a;
-  margin-top: 38px;
+  margin-top: 45px;
   background-color: white;
 }
