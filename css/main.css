@@ -38,6 +38,7 @@ button {
 }
 
 /* Results section */
+
 .results {
   list-style: none;
   padding: 0;
@@ -58,8 +59,8 @@ button {
 .results li {
   margin-bottom: 5px;
   border: 1px solid #8a8a8a;
-  padding: 4px;
-  max-width: 130px;
+  padding: 6px;
+  max-width: 196px;
   background-color: white;
 }
 .js-next {
@@ -67,9 +68,14 @@ button {
 }
 .page {
   padding: 4px;
+  margin-top: 20px;
 }
 .pages {
   padding-top: 10px;
+  display: none;
+}
+.source {
+  margin: 2px;
 }
 
 /*video player */
@@ -78,12 +84,18 @@ button {
   width: 630px;
   height: 354px;
   border: 1px solid #8a8a8a;
-  margin-top: 53px;
+  margin: 72px 0;
   background-color: white;
 }
 
 /* Responsive */
 
+@media only screen and (max-width: 875px) {
+  .js-video {
+    margin: 15px 0 0;
+    padding: 0;
+  }
+}
 @media only screen and (max-width: 690px) {
   .js-video {
     width: 257px;

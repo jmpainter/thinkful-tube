@@ -35,18 +35,12 @@
 @media only screen and (min-width: 875px) {
   /* 3 columns, 3/12 in % */
   .col-narrow {
-    width: 20%;
+    width: 25%;
   }
   .col-wide {
-    width: 80%;
+    width: 75%;
   }
   .col-full {
     width: 100%;
-  }
-}
-
-@media only screen and (max-width: 690px) {
-  .js-video {
-    width: 300px;
   }
 }

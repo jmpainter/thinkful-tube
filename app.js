@@ -32,7 +32,7 @@ function renderResult(result) {
   return `
   <li id="${result.id.videoId}">
     <a href="#">
-      <img class="js-thumbnail thumbnail" src="${result.snippet.thumbnails.default.url}" alt="thumbnail">
+      <img class="js-thumbnail" src="${result.snippet.thumbnails.default.url}" alt="thumbnail">
     </a>
     <p class="title"><a class="js-title" href="#">${result.snippet.title}</a></p>
     <p class="source"><a href="#" class="js-channel" id="${result.snippet.channelId}">${result.snippet.channelTitle}</a></p>
@@ -42,6 +42,7 @@ function renderResult(result) {
 
 function displayResults(data) {
   console.log(data);
+  $('.pages').css('display', 'block');
   if(data.nextPageToken) {
     appState.nextPageToken = data.nextPageToken;
   } else {
