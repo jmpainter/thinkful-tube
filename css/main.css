@@ -23,8 +23,6 @@ body {
 .js-form-submit {
   padding: 8px;
   font-size: 14px;
-  font-size: 16px;
-  padding: 8px;
 }
 button {
   background-color: white;
@@ -82,4 +80,19 @@ button {
   border: 1px solid #8a8a8a;
   margin-top: 53px;
   background-color: white;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 690px) {
+  .js-video {
+    width: 257px;
+    height: 144px;
+  }
+  #js-query {
+    width: 256px;
+  }
+  .js-form-submit {
+    margin-top: 4px;
+  }
 }
