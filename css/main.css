@@ -4,6 +4,34 @@ body * {
 body {
   font-family: 'Arimo', sans-serif;
 }
+.row {
+  background-color:#a9deff;
+  border-right: 1px solid#c8c8c8;
+  border-left: 1px solid#c8c8c8;
+}
+
+/* search form */
+#search {
+  padding: 8px;
+  width: 275px;
+  font-size: 16px;
+  border-radius: 3px;
+  border-style: solid;
+  border: 1px solid grey;
+}
+.js-form-submit {
+  padding: 8px;
+  font-size: 14px;
+  font-size: 16px;
+  padding: 8px;
+}
+button {
+  background-color: white;
+  border-style: solid;
+  border-radius: 3px;
+}
+/* Results section */
+
 .results {
   list-style: none;
   padding: 0;
@@ -26,9 +54,13 @@ body {
   border: 1px solid #8a8a8a;
   padding: 4px;
   max-width: 150px;
+  background-color: white;
 }
 .next {
   margin-left: 32px;
+}
+.page {
+  padding: 4px;
 }
 /*video player */
 
@@ -36,4 +68,5 @@ video {
   width: 600px;
   border: 1px solid #8a8a8a;
   margin-top: 38px;
+  background-color: white;
 }
