@@ -1,0 +1,39 @@
+body * {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Arimo', sans-serif;
+}
+.results {
+  list-style: none;
+  padding: 0;
+}
+.results img {
+  max-width: 140px;
+}
+.results .title {
+  margin: 5px 0;
+  font-weight: 600;
+}
+.results .source {
+  margin: 0;
+}
+.results a {
+  text-decoration: none;
+}
+.results li {
+  margin-bottom: 5px;
+  border: 1px solid #8a8a8a;
+  padding: 4px;
+  max-width: 150px;
+}
+.next {
+  margin-left: 32px;
+}
+/*video player */
+
+video {
+  width: 600px;
+  border: 1px solid #8a8a8a;
+  margin-top: 38px;
+}
