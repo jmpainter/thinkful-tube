@@ -68,12 +68,14 @@ function setVideo(videoId) {
 
 function handleThumbnailClick() {
   $('.results').on('click', '.js-thumbnail', function(event) {
+    event.preventDefault();    
     setVideo($(this).closest('li').attr('id'));
   });
 }
 
 function handleTitleClick() {
   $('.results').on('click', '.js-title', function(event) {
+    event.preventDefault();  
     setVideo($(this).closest('li').attr('id'));
   });
 }
