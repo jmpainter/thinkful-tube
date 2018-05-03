@@ -43,16 +43,8 @@ function renderResult(result) {
 function displayResults(data) {
   console.log(data);
   $('.pages').css('display', 'block');
-  if(data.nextPageToken) {
-    appState.nextPageToken = data.nextPageToken;
-  } else {
-    appState.nextPageToken = '';
-  }
-  if(data.prevPageToken) {
-    appState.prevPageToken = data.prevPageToken;
-  } else {
-    appState.prevPageToken = '';
-  }
+  appState.nextPageToken = data.nextPageToken ? data.nextPageToken : '';
+  appState.prevPageToken = data.prevPageToken ? data.prevPageToken : '';
   if(data.items.length > 0) {
     const results = data.items.map(item => renderResult(item));
     $('.results').html(results);
