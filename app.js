@@ -31,7 +31,7 @@ function getDataFromApi(nextOrPrev) {
 function renderResult(result) {
   return `
   <li id="${result.id.videoId}">
-    <a href="">
+    <a href="#">
       <img class="js-thumbnail" src="${result.snippet.thumbnails.default.url}" alt="thumbnail">
     </a>
     <p class="title"><a class="js-title" href="#">${result.snippet.title}</a></p>
