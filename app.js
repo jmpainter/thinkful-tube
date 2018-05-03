@@ -35,7 +35,7 @@ function renderResult(result) {
       <img class="js-thumbnail" src="${result.snippet.thumbnails.default.url}" alt="thumbnail">
     </a>
     <p class="title"><a class="js-title" href="#">${result.snippet.title}</a></p>
-    <p class="source"><a href="" class="js-channel" id="${result.snippet.channelId}">${result.snippet.channelTitle}</a></p>
+    <p class="source"><a href="#" class="js-channel" role="button" id="${result.snippet.channelId}">${result.snippet.channelTitle}</a></p>
   </li>
   `;
 }
@@ -80,6 +80,7 @@ function handleTitleClick() {
 
 function handleChannelClick() {
   $('.results').on('click', '.js-channel', function(event) {
+    event.preventDefault();
     appState.searchMode = 'channel';
     appState.channelId = $(this).attr('id');
     getDataFromApi();
