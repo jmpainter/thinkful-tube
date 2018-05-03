@@ -98,6 +98,27 @@ button {
 }
 @media only screen and (max-width: 690px) {
   .js-video {
+    width: 550px;
+    height: 209px;
+  }
+  #js-query {
+    width: 256px;
+  }
+  .js-form-submit {
+    margin-top: 4px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .js-video {
+    width: 310px;
+    height: 174px;
+  }
+  #js-query {
+    width: 310px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .js-video {
     width: 257px;
     height: 144px;
   }
