@@ -10,40 +10,45 @@
   <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
 </head>
 <body>
-  <header role="banner">
-    <div class="row">
-      <div class="col-full">
-        <h1>My Tube</h1>
+  <div class="container">
+
+    <header role="banner">
+      <div class="row">
+        <div class="col-full">
+          <h1>My Tube</h1>
+        </div>
       </div>
-    </div>
-  </header>
-  <section role="region">
-    <div class="row search-area">
-      <div class="col-full">
-        <form class="js-form">
-          <label for="js-query">Search for: </label>
-          <input id="js-query" type="text" placeholder="search term">
-          <button class="js-form-submit" type="submit">Search</button>
-        </form>
+    </header>
+    <section role="region">
+      <div class="row search-area">
+        <div class="col-wide">
+          <form class="js-form">
+            <label for="js-query">Search for: </label>
+            <input id="js-query" type="text" placeholder="search term">
+            <button class="js-form-submit" type="submit">Search</button>
+          </form>
+        </div>
       </div>
-    </div>
-  </section>
-  <main role="main">
-    <div class="row">
-      <div class="col-wide">
-        <iframe class="js-video" src="" title="video-player">
-        </iframe>
+    </section>
+    <main role="main">
+      <div class="row">
+        <div class="col-wide">
+          <div id="video-wrapper">
+            <iframe id="js-video" src="" title="video-player">
+            </iframe>
+          </div>
+        </div>
+        <div class="col-narrow">
+          <nav class="pages" role="navigation">
+            <button class="page js-prev">&lt; Prev</button>    
+            <button class="page js-next">Next &gt;</button>    
+          </nav>
+          <ul class="results">
+          </ul>
+        </div>
       </div>
-      <div class="col-narrow">
-        <nav class="pages" role="navigation">
-          <button class="page js-prev">&lt; Prev</button>    
-          <button class="page js-next">Next &gt;</button>    
-        </nav>
-        <ul class="results">
-        </ul>
-      </div>
-    </div>
-  </main>
+    </main>
+  </div>
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

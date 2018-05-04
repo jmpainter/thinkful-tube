@@ -63,7 +63,7 @@ function handleSearchSubmit() {
 }
 
 function setVideo(videoId) {
-  $('.js-video').attr('src', YOUTUBE_EMBED_URL + videoId);
+  $('#js-video').attr('src', YOUTUBE_EMBED_URL + videoId);
 }
 
 function handleThumbnailClick() {
