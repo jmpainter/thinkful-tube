@@ -42,13 +42,14 @@ function renderResult(result) {
 
 function displayResults(data) {
   console.log(data);
-  $('.pages').css('display', 'block');
   appState.nextPageToken = data.nextPageToken ? data.nextPageToken : '';
   appState.prevPageToken = data.prevPageToken ? data.prevPageToken : '';
   if(data.items.length > 0) {
     $('.js-results-number').html(data.pageInfo.totalResults + ' videos found:');
+    $('.pages').prop('hidden', false);
+    $('.results').prop('hidden', false);
     const results = data.items.map(item => renderResult(item));
-    $('.js-results-list').prop('hidden', false).html(results);
+    $('.js-results-list').html(results);
   } else {
     getDataFromApi('prev');
   }
