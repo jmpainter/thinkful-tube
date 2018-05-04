@@ -30,12 +30,12 @@ function getDataFromApi(nextOrPrev) {
 
 function renderResult(result) {
   return `
-  <li id="${result.id.videoId}">
-    <a href="#">
+  <li data-video-id="${result.id.videoId}">
+    <a href="javascript:void(0)">
       <img class="js-thumbnail" src="${result.snippet.thumbnails.default.url}" alt="thumbnail">
     </a>
-    <p class="title"><a class="js-title" href="#">${result.snippet.title}</a></p>
-    <p class="source"><a href="#" class="js-channel" role="button" id="${result.snippet.channelId}">${result.snippet.channelTitle}</a></p>
+    <p class="title"><a class="js-title" href="javascript:void(0)">${result.snippet.title}</a></p>
+    <p class="source"><a href="javascript:void(0)" class="js-channel" role="button" data-channel-id="${result.snippet.channelId}">${result.snippet.channelTitle}</a></p>
   </li>
   `;
 }
@@ -68,23 +68,20 @@ function setVideo(videoId) {
 
 function handleThumbnailClick() {
   $('.results').on('click', '.js-thumbnail', function(event) {
-    event.preventDefault();    
-    setVideo($(this).closest('li').attr('id'));
+    setVideo($(this).closest('li').attr('data-video-id'));
   });
 }
 
 function handleTitleClick() {
   $('.results').on('click', '.js-title', function(event) {
-    event.preventDefault();  
-    setVideo($(this).closest('li').attr('id'));
+    setVideo($(this).closest('li').attr('data-video-id'));
   });
 }
 
 function handleChannelClick() {
   $('.results').on('click', '.js-channel', function(event) {
-    event.preventDefault();
     appState.searchMode = 'channel';
-    appState.channelId = $(this).attr('id');
+    appState.channelId = $(this).attr('data-channel-id');
     getDataFromApi();
   });
 }
