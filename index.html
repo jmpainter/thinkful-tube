@@ -39,12 +39,14 @@
           </div>
         </div>
         <div class="col-narrow">
-          <nav class="pages" role="navigation">
+          <nav class="pages" role="navigation" hidden>
             <button class="page js-prev">&lt; Prev</button>    
             <button class="page js-next">Next &gt;</button>    
           </nav>
-          <ul class="results">
-          </ul>
+          <section class="results" aria-live="assertive">
+            <p class="js-results-number"></p>
+            <ul class="js-results-list"></ul>
+          </section>
         </div>
       </div>
     </main>

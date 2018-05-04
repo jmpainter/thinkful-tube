@@ -32,10 +32,10 @@ function renderResult(result) {
   return `
   <li data-video-id="${result.id.videoId}">
     <a href="javascript:void(0)">
-      <img class="js-thumbnail" src="${result.snippet.thumbnails.default.url}" alt="thumbnail">
+      <img class="js-thumbnail" src="${result.snippet.thumbnails.default.url}" alt="${result.snippet.title}">
     </a>
-    <p class="title"><a class="js-title" href="javascript:void(0)">${result.snippet.title}</a></p>
-    <p class="source"><a href="javascript:void(0)" class="js-channel" role="button" data-channel-id="${result.snippet.channelId}">${result.snippet.channelTitle}</a></p>
+    <a class="title js-title" href="javascript:void(0)">${result.snippet.title}</a>
+    <a href="javascript:void(0)" class="js-channel" role="button" data-channel-id="${result.snippet.channelId}">Channel: ${result.snippet.channelTitle}</a>
   </li>
   `;
 }
@@ -46,8 +46,9 @@ function displayResults(data) {
   appState.nextPageToken = data.nextPageToken ? data.nextPageToken : '';
   appState.prevPageToken = data.prevPageToken ? data.prevPageToken : '';
   if(data.items.length > 0) {
+    $('.js-results-number').html(data.pageInfo.totalResults + ' videos found:');
     const results = data.items.map(item => renderResult(item));
-    $('.results').html(results);
+    $('.js-results-list').prop('hidden', false).html(results);
   } else {
     getDataFromApi('prev');
   }
@@ -67,19 +68,19 @@ function setVideo(videoId) {
 }
 
 function handleThumbnailClick() {
-  $('.results').on('click', '.js-thumbnail', function(event) {
+  $('.js-results-list').on('click', '.js-thumbnail', function(event) {
     setVideo($(this).closest('li').attr('data-video-id'));
   });
 }
 
 function handleTitleClick() {
-  $('.results').on('click', '.js-title', function(event) {
+  $('.js-results-list').on('click', '.js-title', function(event) {
     setVideo($(this).closest('li').attr('data-video-id'));
   });
 }
 
 function handleChannelClick() {
-  $('.results').on('click', '.js-channel', function(event) {
+  $('.js-results-list').on('click', '.js-channel', function(event) {
     appState.searchMode = 'channel';
     appState.channelId = $(this).attr('data-channel-id');
     getDataFromApi();
