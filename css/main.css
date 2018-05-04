@@ -95,7 +95,7 @@ button {
   padding-bottom: 56%;
   height: 0;
   overflow: hidden;
-  margin-top: 75px;
+  margin-top: 106px;
 }
 
 #js-video {
@@ -108,4 +108,12 @@ button {
   border: 1px solid #8a8a8a;
   margin: 72px 0;
   background-color: white;
+}
+
+/* Responsive Styles */
+
+@media only screen and (max-width: 840px) {
+  #video-wrapper {
+    margin-top: 15px;
+  }
 }
